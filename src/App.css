@@ -9,23 +9,3 @@
   grid-template-columns: 1fr 5fr;
   grid-gap: 10px;
 }
-
-.header {
-  grid-area: header;
-}
-
-.header img {
-  width: 60px;
-}
-
-.nav {
-  grid-area: nav;
-}
-
-.content {
-  grid-area: content;
-}
-
-.header, .nav, .content {
-  background-color: aquamarine;
-}
