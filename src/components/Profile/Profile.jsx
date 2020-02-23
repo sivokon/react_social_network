@@ -4,7 +4,7 @@ import MyPost from './MyPost/MyPost';
 
 const Profile = () => {
   return (
-    <div className={styles.content}>
+    <div>
       <div>
         <img src="https://schuttejoe.github.io/img/Posts/DisneyPostMortem/Preview.png" />
       </div>
