@@ -1,16 +1,12 @@
 import React from 'react';
 import styles from  './Profile.module.css';
 import MyPost from './MyPost/MyPost';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = () => {
   return (
     <div>
-      <div>
-        <img src="https://schuttejoe.github.io/img/Posts/DisneyPostMortem/Preview.png" />
-      </div>
-      <div>
-        avatar + description
-      </div>
+      <ProfileInfo />
       <MyPost />
     </div>
   );
