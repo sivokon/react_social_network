@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Dialogs.module.css';
-import Dialog from './DialogItem/DialogItem';
+import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 const Dialogs = () => {
 
-  let users = [
+  let dialogs = [
     { id: 1, name: "Dima" },
     { id: 2, name: "Andrew" },
     { id: 3, name: "Dennis" },
@@ -19,19 +19,21 @@ const Dialogs = () => {
     { id: 3, message: "Have you done EO lab?" }
   ];
 
+  let dialogsElements = dialogs.map(
+    dialog => <DialogItem name={dialog.name} id={dialog.id} />
+  );
+
+  let messagesElements = messages.map(
+    messageObj => <Message message={messageObj.message} />
+  );
+
   return (
     <div className={styles.dialogs}>
       <div className={styles.dialogItems}>
-        <Dialog name={users[0].name} id={users[0].id} />
-        <Dialog name={users[1].name} id={users[1].id} />
-        <Dialog name={users[2].name} id={users[2].id} />
-        <Dialog name={users[3].name} id={users[3].id} />
-        <Dialog name={users[4].name} id={users[4].id} />
+        { dialogsElements }
       </div>
       <div className={styles.messages}>
-        <Message message={messages[0].message}/>
-        <Message message={messages[1].message}/>
-        <Message message={messages[2].message}/>
+        { messagesElements }
       </div>
     </div>
   );
