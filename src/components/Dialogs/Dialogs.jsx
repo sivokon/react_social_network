@@ -10,7 +10,7 @@ const Dialogs = (props) => {
   );
 
   let messagesElements = props.dialogsState.messages.map(
-    messageObj => <Message message={messageObj.message} />
+    messageObj => <Message message={messageObj.message} userId={messageObj.userId} />
   );
 
   return (

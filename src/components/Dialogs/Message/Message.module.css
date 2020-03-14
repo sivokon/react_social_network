@@ -1,0 +1,11 @@
+.avatar img {
+  width: 50px;
+}
+
+.message_currentUser {
+  text-align: right;
+}
+
+.message_anotherUser {
+  text-align: left;
+}

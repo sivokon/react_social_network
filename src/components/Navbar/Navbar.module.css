@@ -12,3 +12,23 @@
 .item .active {
   color: blue;
 }
+
+.friendsList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.friendItem {
+  text-align: center;
+  /* background-color: lawngreen; */
+}
+
+.friendItem img {
+  width: 50px;
+  border-radius: 30px;
+}
+
+.friendName {
+  font-size: 12px;
+}
