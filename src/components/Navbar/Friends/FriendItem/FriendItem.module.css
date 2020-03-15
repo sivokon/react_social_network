@@ -1,0 +1,10 @@
+.friendItem {
+  text-align: center;
+  font-size: 14px;
+  /* background-color: lawngreen; */
+}
+
+.friendItem img {
+  width: 100%;
+  border-radius: 30px;
+}
