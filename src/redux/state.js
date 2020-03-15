@@ -15,7 +15,7 @@ let state = {
       { id: 5, name: "Artem" }
     ],
     messages: [
-      { id: 1, message: "Hello, how are you?", userId: 1 },
+      { id: 1, message: "Hello, how are you?", userId: 2 },
       { id: 2, message: "Let's go to gym.", userId: 2 },
       { id: 3, message: "Have you done EO lab?", userId: 1 }
     ]
