@@ -8,15 +8,22 @@ const MyPost = (props) => {
     post => <Post message={post.message} likesCount={post.likesCount} />
   );
 
+  let textareaElementRef = React.createRef();
+  
+  let addPost = () => {
+    let postContent = textareaElementRef.current.value;
+    alert(postContent);
+  };
+
   return (
     <div className={styles.postsBlock}>
       <h3>my posts</h3>
       <div>
         <div>
-          <textarea></textarea>
+          <textarea ref={textareaElementRef}></textarea>
         </div>
         <div>
-          <button>Add post</button>
+          <button onClick={ addPost }>Add post</button>
         </div>
       </div>
       <div className={styles.posts}>
