@@ -11,8 +11,8 @@ const MyPost = (props) => {
   let textareaElementRef = React.createRef();
   
   let addPost = () => {
-    let postContent = textareaElementRef.current.value;
-    alert(postContent);
+    let postMessage = textareaElementRef.current.value;
+    props.addPost(postMessage);
   };
 
   return (
