@@ -21,7 +21,8 @@ let state = {
       { id: 1, message: "Hello, how are you?", userId: 2 },
       { id: 2, message: "Let's go to gym.", userId: 2 },
       { id: 3, message: "Have you done EO lab?", userId: 1 }
-    ]
+    ],
+    newMessageText: ""
   },
   navbar: {
     friends: [
@@ -40,12 +41,29 @@ export let addPost = () => {
   };
   state.profilePage.posts.push(newPost);
   state.profilePage.newPostText = "";
-  renderEntireTree(state, addPost, updateNewPostText);
+  renderEntireTree(state, addPost, updateNewPostText, sendMessage, updateNewMessageText);
 }
 
 export const updateNewPostText = (postText) => {
   state.profilePage.newPostText = postText;
-  renderEntireTree(state, addPost, updateNewPostText)
+  renderEntireTree(state, addPost, updateNewPostText, sendMessage, updateNewMessageText)
+}
+
+export const sendMessage = () => {
+  debugger;
+  let newMessage = {
+    id: 4,
+    message: state.dialogsPage.newMessageText,
+    userId: 1
+  };
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = "";
+  renderEntireTree(state, addPost, updateNewPostText, sendMessage, updateNewMessageText)
+}
+
+export const updateNewMessageText = (messageText) => {
+  state.dialogsPage.newMessageText = messageText;
+  renderEntireTree(state, addPost, updateNewPostText, sendMessage, updateNewMessageText)
 }
 
 export default state;

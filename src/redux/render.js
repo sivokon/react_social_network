@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App';
 
-export const renderEntireTree = (state, addPost, updateNewPostText) => {
+export const renderEntireTree = (state, addPost, updateNewPostText, sendMessage, updateNewMessageText) => {
   ReactDOM.render(<App state={state}
                        addPost={addPost}
-                       updateNewPostText={updateNewPostText}/>, document.getElementById('root'));
+                       updateNewPostText={updateNewPostText}
+                       sendMessage={sendMessage}
+                       updateNewMessageText={updateNewMessageText}/>, document.getElementById('root'));
 }
