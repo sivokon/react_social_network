@@ -10,7 +10,7 @@ const MyPost = (props) => {
 
   let textareaElementRef = React.createRef();
   
-  let addPost = () => {
+  const addPost = () => {
     props.addPost();
   };
 

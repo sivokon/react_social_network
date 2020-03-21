@@ -7,7 +7,7 @@ let state = {
       { id:2, message: "Look, today is a good day.", likesCount: 7 },
       { id:3, message: "How about reading some article?", likesCount: 10 }
     ],
-    newPostText: "Artem"
+    newPostText: ""
   },
   dialogsPage: {
     dialogs: [
@@ -33,7 +33,7 @@ let state = {
   }
 };
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     id: 4,
     message: state.profilePage.newPostText,
@@ -50,7 +50,6 @@ export const updateNewPostText = (postText) => {
 }
 
 export const sendMessage = () => {
-  debugger;
   let newMessage = {
     id: 4,
     message: state.dialogsPage.newMessageText,

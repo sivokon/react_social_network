@@ -15,7 +15,7 @@ const Dialogs = (props) => {
 
   let textareaElementRef = React.createRef();
 
-  let sendMessage = () => {
+  const sendMessage = () => {
     props.sendMessage();
   }
 
