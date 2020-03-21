@@ -13,6 +13,7 @@ const MyPost = (props) => {
   let addPost = () => {
     let postMessage = textareaElementRef.current.value;
     props.addPost(postMessage);
+    textareaElementRef.current.value = ''
   };
 
   return (
