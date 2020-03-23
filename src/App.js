@@ -14,16 +14,12 @@ const App = (props) => {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar navbarState={props.state.navbar} />
+        <Navbar navbarState={props.store.getState().navbar} />
         <div className="app-wrapper-content">
           <Route path="/profile" render={() =>
-            <Profile profileState={props.state.profilePage}
-                     addPost={props.addPost}
-                     updateNewPostText={props.updateNewPostText}/>} />
+            <Profile store={props.store} profileState={props.store.getState().profilePage}/>} />
           <Route path="/dialogs" render={() =>
-            <Dialogs dialogsState={props.state.dialogsPage}
-                     sendMessage={props.sendMessage}
-                     updateNewMessageText={props.updateNewMessageText}/>} />
+            <Dialogs store={props.store} dialogsState={props.store.getState().dialogsPage}/>} />
 
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />

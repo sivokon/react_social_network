@@ -16,12 +16,13 @@ const Dialogs = (props) => {
   let textareaElementRef = React.createRef();
 
   const sendMessage = () => {
-    props.sendMessage();
+    props.store.sendMessage();
   }
 
   const onTextChange = () => {
+    debugger;
     let messageText = textareaElementRef.current.value;
-    props.updateNewMessageText(messageText);
+    props.store.updateNewMessageText(messageText);
   }
 
   return (
