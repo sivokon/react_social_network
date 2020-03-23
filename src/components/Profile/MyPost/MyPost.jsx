@@ -11,12 +11,12 @@ const MyPost = (props) => {
   let textareaElementRef = React.createRef();
   
   const addPost = () => {
-    props.store.addPost();
+    props.addPost();
   };
 
   const onTextChange = () => {
     let postText = textareaElementRef.current.value;
-    props.store.updateNewPostText(postText);
+    props.updateNewPostText(postText);
   };
 
   return (
