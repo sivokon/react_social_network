@@ -31,7 +31,6 @@ let store = {
       ]
     }
   },
-
   _subscriber() {
     console.log('There is no subscribers for now');
   },
@@ -39,7 +38,6 @@ let store = {
   getState() {
     return this._state;
   },
-  
   subscribe(observer) {
     this._subscriber = observer;
   },
@@ -73,6 +71,23 @@ let store = {
     debugger;
     this._state.dialogsPage.newMessageText = messageText;
     this._subscriber(this._state);
+  },
+
+  dispatch(action) {
+    switch(action.type) {
+      case 'ADD-POST':
+        this.addPost();
+        break;
+      case 'UPDATE-NEW-POST-TEXT':
+        this.updateNewPostText(action.postText);
+        break;
+      case 'SEND-MESSAGE':
+        this.sendMessage();
+        break;
+      case 'UPDATE-NEW-MESSAGE-TEXT':
+        this.updateNewMessageText(action.messageText);
+        break;
+    }
   }
 }
 
