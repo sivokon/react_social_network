@@ -1,10 +1,15 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const SEND_MESSAGE = "SEND-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+
 let store = {
   _state: {
     profilePage: {
       posts: [
-        { id:1, message: "Hello! I am learning React.", likesCount: 5 },
-        { id:2, message: "Look, today is a good day.", likesCount: 7 },
-        { id:3, message: "How about reading some article?", likesCount: 10 }
+        { id: 1, message: "Hello! I am learning React.", likesCount: 5 },
+        { id: 2, message: "Look, today is a good day.", likesCount: 7 },
+        { id: 3, message: "How about reading some article?", likesCount: 10 }
       ],
       newPostText: ""
     },
@@ -74,22 +79,31 @@ let store = {
   },
 
   dispatch(action) {
-    switch(action.type) {
-      case 'ADD-POST':
+    switch (action.type) {
+      case ADD_POST:
         this.addPost();
         break;
-      case 'UPDATE-NEW-POST-TEXT':
+      case UPDATE_NEW_POST_TEXT:
         this.updateNewPostText(action.postText);
         break;
-      case 'SEND-MESSAGE':
+      case SEND_MESSAGE:
         this.sendMessage();
         break;
-      case 'UPDATE-NEW-MESSAGE-TEXT':
+      case UPDATE_NEW_MESSAGE_TEXT:
         this.updateNewMessageText(action.messageText);
         break;
     }
   }
 }
+
+export const addPostActionCreator = () =>
+  ({ type: ADD_POST });
+export const updateNewPostTextActionCreator = (postText) =>
+  ({ type: UPDATE_NEW_POST_TEXT, postText: postText });
+export const sendMessageActionCreator = () =>
+  ({ type: SEND_MESSAGE })
+export const updateNewMessageTextActionCreator = (messageText) =>
+  ({ type: UPDATE_NEW_MESSAGE_TEXT, messageText: messageText })
 
 export default store;
 
