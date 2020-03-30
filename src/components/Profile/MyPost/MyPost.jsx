@@ -9,11 +9,11 @@ const MyPost = (props) => {
     post => <Post message={post.message} likesCount={post.likesCount} />
   );
   
-  const addPost = () => {
+  const onAddPostClick = () => {
     props.dispatch(addPostActionCreator());
   };
 
-  const onTextChange = (e) => {
+  const onPostTextChange = (e) => {
     let postText = e.target.value;
     props.dispatch(updateNewPostTextActionCreator(postText));
   };
@@ -23,10 +23,10 @@ const MyPost = (props) => {
       <h3>my posts</h3>
       <div>
         <div>
-          <textarea onChange={onTextChange} value={props.newPostText}></textarea>
+          <textarea onChange={onPostTextChange} value={props.newPostText}></textarea>
         </div>
         <div>
-          <button onClick={ addPost }>Add post</button>
+          <button onClick={ onAddPostClick }>Add post</button>
         </div>
       </div>
       <div className={styles.posts}>
