@@ -8,15 +8,13 @@ const MyPost = (props) => {
   let postsElements = props.posts.map(
     post => <Post message={post.message} likesCount={post.likesCount} />
   );
-
-  let textareaElementRef = React.createRef();
   
   const addPost = () => {
     props.dispatch(addPostActionCreator());
   };
 
-  const onTextChange = () => {
-    let postText = textareaElementRef.current.value;
+  const onTextChange = (e) => {
+    let postText = e.target.value;
     props.dispatch(updateNewPostTextActionCreator(postText));
   };
 
@@ -25,7 +23,7 @@ const MyPost = (props) => {
       <h3>my posts</h3>
       <div>
         <div>
-          <textarea onChange={onTextChange} ref={textareaElementRef} value={props.newPostText}></textarea>
+          <textarea onChange={onTextChange} value={props.newPostText}></textarea>
         </div>
         <div>
           <button onClick={ addPost }>Add post</button>
