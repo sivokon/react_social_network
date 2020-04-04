@@ -8,8 +8,8 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import { BrowserRouter, Route } from 'react-router-dom';
-
 const App = (props) => {
+  debugger;
   return (
     <BrowserRouter>
       <div className="app-wrapper">

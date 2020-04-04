@@ -1,7 +1,6 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+import { profileReducer } from "./profileReducer";
+import { dialogsReducer } from "./dialogsReducer";
+import { navbarReducer } from "./navbarReducer";
 
 let store = {
   _state: {
@@ -47,63 +46,13 @@ let store = {
     this._subscriber = observer;
   },
 
-  addPost() {
-    let newPost = {
-      id: 4,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._subscriber(this._state);
-  },
-  updateNewPostText(postText) {
-    this._state.profilePage.newPostText = postText;
-    this._subscriber(this._state);
-  },
-
-  sendMessage() {
-    let newMessage = {
-      id: 4,
-      message: this._state.dialogsPage.newMessageText,
-      userId: 1
-    };
-    this._state.dialogsPage.messages.push(newMessage);
-    this._state.dialogsPage.newMessageText = "";
-    this._subscriber(this._state);
-  },
-  updateNewMessageText(messageText) {
-    debugger;
-    this._state.dialogsPage.newMessageText = messageText;
-    this._subscriber(this._state);
-  },
-
   dispatch(action) {
-    switch (action.type) {
-      case ADD_POST:
-        this.addPost();
-        break;
-      case UPDATE_NEW_POST_TEXT:
-        this.updateNewPostText(action.postText);
-        break;
-      case SEND_MESSAGE:
-        this.sendMessage();
-        break;
-      case UPDATE_NEW_MESSAGE_TEXT:
-        this.updateNewMessageText(action.messageText);
-        break;
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.navbar = navbarReducer(this._state.navbar, action);
+    this._subscriber(this._state);
   }
 }
-
-export const addPostActionCreator = () =>
-  ({ type: ADD_POST });
-export const updateNewPostTextActionCreator = (postText) =>
-  ({ type: UPDATE_NEW_POST_TEXT, postText: postText });
-export const sendMessageActionCreator = () =>
-  ({ type: SEND_MESSAGE })
-export const updateNewMessageTextActionCreator = (messageText) =>
-  ({ type: UPDATE_NEW_MESSAGE_TEXT, messageText: messageText })
 
 export default store;
 
