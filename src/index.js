@@ -5,14 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from './redux/redux-store';
 
-const renderEntireTree = (state) => {
+const renderEntireTree = () => {
   ReactDOM.render(<App store={store} />, document.getElementById('root'));
 };
 
-renderEntireTree(store.getState());
+renderEntireTree();
 
 store.subscribe(() => {
-  renderEntireTree(store.getState());
+  renderEntireTree();
 });
 
 // If you want your app to work offline and load faster, you can change
