@@ -1,12 +1,19 @@
 import { connect } from 'react-redux';
 import Users from './Users';
+import { ToggleFollowAC } from '../../redux/usersReducer';
 
-const mapStateToProps = (state) => {
+let mapStateToProps = (state) => {
   return {
     users: state.usersPage.users
   }
 }
 
-const UsersContainer = connect(mapStateToProps)(Users);
+let mapDispatchToProps = (dispatch) => {
+  return {
+    toggleFollow: (userId) => dispatch(ToggleFollowAC(userId))
+  }
+}
+
+const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users);
 
 export default UsersContainer;

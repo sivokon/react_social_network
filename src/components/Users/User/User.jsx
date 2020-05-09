@@ -7,7 +7,7 @@ const User = (props) => {
   return (
     <div className={styles.userBlock}>
       <div className={styles.userBlockGrid}>
-        <UserAvatar followed={props.followed} avatarUrl={props.avatarUrl}/>
+        <UserAvatar userId={props.userId} followed={props.followed} avatarUrl={props.avatarUrl} toggleFollow={props.toggleFollow}/>
         <UserInfo fullName={props.fullName} location={props.location} status={props.status}/>
       </div>
     </div>

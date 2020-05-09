@@ -6,12 +6,13 @@ const Users = (props) => {
 
   let users = props.users.map(
     user => <User
-              key={user.id}
+              userId={user.id}
               followed={user.followed}
               fullName={user.fullName}
               location={user.location}
               status={user.status}
-              avatarUrl={user.avatarUrl}/>)
+              avatarUrl={user.avatarUrl}
+              toggleFollow={props.toggleFollow}/>)
 
   return (
     <div class={styles.usersPage}>
