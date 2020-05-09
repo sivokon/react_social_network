@@ -5,14 +5,7 @@ import styles from './Users.module.css';
 const Users = (props) => {
 
   let users = props.users.map(
-    user => <User
-              userId={user.id}
-              followed={user.followed}
-              fullName={user.fullName}
-              location={user.location}
-              status={user.status}
-              avatarUrl={user.avatarUrl}
-              toggleFollow={props.toggleFollow}/>)
+    user => <User user={user} toggleFollow={props.toggleFollow}/>)
 
   return (
     <div class={styles.usersPage}>
