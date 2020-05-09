@@ -6,9 +6,10 @@ const Users = (props) => {
 
   let users = props.users.map(
     user => <User
+              key={user.id}
+              followed={user.followed}
               fullName={user.fullName}
-              country={user.country}
-              city={user.city}
+              location={user.location}
               status={user.status}
               avatarUrl={user.avatarUrl}/>)
 

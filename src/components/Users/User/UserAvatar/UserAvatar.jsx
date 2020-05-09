@@ -6,7 +6,11 @@ const UserAvatar = (props) => {
     <div className={styles.userAvatar}>
       <img src={props.avatarUrl} />
       <div>
-        <button>Follow</button>
+        {
+          props.followed
+            ? <button>Follow</button>
+            : <button>Unfollow</button>
+        }
       </div>
     </div>
   );

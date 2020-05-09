@@ -4,9 +4,9 @@ import styles from './UserInfo.module.css';
 const UserInfo = (props) => {
   return (
     <div className={styles.userInfo}>
-      <p>{props.fullName}</p>
-      <p>{props.country}, {props.city}</p>
-      <p>{props.status}</p>
+      <span>{props.fullName}</span><br />
+      <span>{props.location.country}, {props.location.city}</span><br />
+      <span>{props.status}</span>
     </div>
   );
 }
