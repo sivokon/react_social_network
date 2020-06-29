@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-import MyPostContainer from './MyPost/MyPostContainer';
+import MyPostContainer from './MyPost/MyPostsContainer';
 
 const Profile = () => {
   return (
