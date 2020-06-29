@@ -25,15 +25,15 @@ export const usersReducer = (state = initialState, action) => {
         })
       }
 
-      case SET_USERS:
-        return {
-          ...state,
-          users: [...state.users, ...action.users]
-        }
+    case SET_USERS:
+      return {
+        ...state,
+        users: [...state.users, ...action.users]
+      }
 
   }
   return state;
 }
 
 export const toggleFollowAC = (userId) => ({ type: TOGGLE_FOLLOW, userId })
-export const setUsersAC = (users) => ({type: SET_USERS, users});
+export const setUsersAC = (users) => ({ type: SET_USERS, users });
