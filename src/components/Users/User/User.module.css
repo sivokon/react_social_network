@@ -1,9 +1,10 @@
 .userBlock {
   padding: 10px;
+  margin-bottom: 20px;
 }
 
 .userBlockGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 9fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 12fr);
   gap: 15px;
 }
