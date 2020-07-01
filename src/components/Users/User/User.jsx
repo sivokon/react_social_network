@@ -10,11 +10,11 @@ const User = (props) => {
         <UserAvatar
             userId={props.user.id}
             followed={props.user.followed}
-            avatarUrl={props.user.avatarUrl}
+            avatar={props.user.photos.small}
             toggleFollow={props.toggleFollow}/>
         <UserInfo
-            fullName={props.user.fullName}
-            location={props.user.location}
+            name={props.user.name}
+            // location={props.user.location}
             status={props.user.status}/>
       </div>
     </div>
