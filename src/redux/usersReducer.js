@@ -1,8 +1,16 @@
 const TOGGLE_FOLLOW = "TOGGLE_FOLLOW";
 const SET_USERS = "SET_USERS";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const TOGGLE_PAGINATION = "ADD_PAGINATION";
+const ADD_USERS = "ADD_USERS";
 
 let initialState = {
-  users: []
+  users: [],
+  totalUsersCount: 0,
+  pageSize: 4,
+  currentPage: 1,
+  addPagination: false
   // users: [
   //   { id: 1, followed: false, fullName: "Artem Tarasenko", location: { country: "Ukraine", city: "Kiev" }, status: "I am React developer", avatarUrl: "https://yt3.ggpht.com/a/AGF-l7-uueDdRmZsJQOVmDZCeIjv8tU9swZd1pJYCw=s900-c-k-c0xffffffff-no-rj-mo" },
   //   { id: 2, followed: false, fullName: "Sanan Sivasankaran", location: { country: "India", city: "New Deli" }, status: "I am Indian man", avatarUrl: "https://yt3.ggpht.com/a/AGF-l7-uueDdRmZsJQOVmDZCeIjv8tU9swZd1pJYCw=s900-c-k-c0xffffffff-no-rj-mo" },
@@ -28,7 +36,31 @@ export const usersReducer = (state = initialState, action) => {
     case SET_USERS:
       return {
         ...state,
+        users: [...action.users]
+      }
+
+    case ADD_USERS:
+      return {
+        ...state,
         users: [...state.users, ...action.users]
+      }
+
+    case SET_TOTAL_USERS_COUNT:
+      return {
+        ...state,
+        totalUsersCount: action.totalCount < 50 ? action.totalCount : 50 
+      }
+
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.currentPage
+      }
+
+    case TOGGLE_PAGINATION:
+      return {
+        ...state,
+        addPagination: !state.addPagination
       }
 
   }
@@ -37,3 +69,7 @@ export const usersReducer = (state = initialState, action) => {
 
 export const toggleFollowAC = (userId) => ({ type: TOGGLE_FOLLOW, userId })
 export const setUsersAC = (users) => ({ type: SET_USERS, users });
+export const addUsersAC = (users) => ({type: ADD_USERS, users});
+export const setTotalUsersCountAC = (totalCount) => ({type: SET_TOTAL_USERS_COUNT, totalCount});
+export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const togglePaginationAC = () => ({ type: TOGGLE_PAGINATION });
