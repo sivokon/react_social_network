@@ -26,7 +26,7 @@ const Users = (props) => {
         {
           props.addPagination &&
           <div className={styles.paginationBlock}>
-            { props.isFetching ? <Preloader /> : paginationPages}
+            {props.isFetching ? <Preloader /> : paginationPages}
           </div>
         }
         <div>

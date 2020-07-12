@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Message.module.css';
 
 const Message = (props) => {
-  
+
   let ownerMessageClass = props.userId == 1 ? styles.message_currentUser : styles.message_anotherUser;
 
   return (
@@ -14,7 +14,7 @@ const Message = (props) => {
         {props.message}
       </div>
     </div>
-  ); 
+  );
 }
 
 export default Message;

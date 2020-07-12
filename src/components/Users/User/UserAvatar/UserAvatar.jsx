@@ -7,9 +7,9 @@ const UserAvatar = (props) => {
     <div className={styles.userAvatar}>
       <img src={props.avatar ? props.avatar : userImage} />
       <div>
-      <button onClick={() => props.toggleFollow(props.userId)}>
-        { props.followed ? "Unfollow" : "Follow" }
-      </button>
+        <button onClick={() => props.toggleFollow(props.userId)}>
+          {props.followed ? "Unfollow" : "Follow"}
+        </button>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ const MyPosts = (props) => {
   let postsElements = props.posts.map(
     post => <Post message={post.message} likesCount={post.likesCount} />
   );
-  
+
   const onAddPostClick = () => {
     props.addPost();
   };
@@ -25,11 +25,11 @@ const MyPosts = (props) => {
           <textarea onChange={onPostTextChange} value={props.newPostText}></textarea>
         </div>
         <div>
-          <button onClick={ onAddPostClick }>Add post</button>
+          <button onClick={onAddPostClick}>Add post</button>
         </div>
       </div>
       <div className={styles.posts}>
-        { postsElements }
+        {postsElements}
       </div>
     </div>
   );

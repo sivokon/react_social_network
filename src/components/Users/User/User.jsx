@@ -8,14 +8,14 @@ const User = (props) => {
     <div className={styles.userBlock}>
       <div className={styles.userBlockGrid}>
         <UserAvatar
-            userId={props.user.id}
-            followed={props.user.followed}
-            avatar={props.user.photos.small}
-            toggleFollow={props.toggleFollow}/>
+          userId={props.user.id}
+          followed={props.user.followed}
+          avatar={props.user.photos.small}
+          toggleFollow={props.toggleFollow} />
         <UserInfo
-            name={props.user.name}
-            // location={props.user.location}
-            status={props.user.status}/>
+          name={props.user.name}
+          // location={props.user.location}
+          status={props.user.status} />
       </div>
     </div>
   );

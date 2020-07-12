@@ -1,7 +1,6 @@
 import React from 'react';
 import * as axios from 'axios';
 import Users from './Users';
-import Preloader from '../common/Preloader/Preloader';
 
 class UsersAPIContainer extends React.Component {
   componentDidMount() {
@@ -44,8 +43,8 @@ class UsersAPIContainer extends React.Component {
     this.props.toggleIsFetching(true);
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${count}`)
       .then(response => {
-        successCallback(response);
         this.props.toggleIsFetching(false);
+        successCallback(response);
       });
   }
 
