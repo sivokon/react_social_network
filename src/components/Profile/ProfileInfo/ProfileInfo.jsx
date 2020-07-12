@@ -37,15 +37,12 @@ const ProfileInfo = (props) => {
           <div>Looking for a job: {props.profile.lookingForAJob ? "yes" : "no"}</div>
           {props.profile.lookingForAJobDescription && <div>Description: {props.profile.lookingForAJobDescription}</div>}
         </div>
-        {
-          userSocialNetworks &&
-          <div className={styles.contactsBlock}>
-            <div className={styles.blockTitle}>
-              Find me in social networks:
-            </div>
-            {userSocialNetworks}
+        <div className={styles.contactsBlock}>
+          <div className={styles.blockTitle}>
+            Find me in social networks
           </div>
-        }
+          {userSocialNetworks.length > 0 ? userSocialNetworks : "(No social networks specified)"}
+        </div>
       </div>
     </div>
   );
