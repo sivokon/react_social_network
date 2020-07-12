@@ -1,7 +1,36 @@
-.profileInfo img {
+.profileContainer img {
   width: 100%;
 }
 
-.descriptionBlock {
+.profileInfo {
+  display: grid;
+  grid-template-areas: "avatar profileInfoHeader profileInfoHeader" "avatar job contacts";
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 2fr);
+  grid-template-rows: 100px minmax(0, 1fr);
+  column-gap: 20px;
   padding: 20px;
+}
+
+.avatar {
+  grid-area: avatar;
+}
+
+.profileInfoHeader {
+  grid-area: profileInfoHeader;
+}
+
+.jobBlock {
+  grid-area: job;
+}
+
+.contactsBlock {
+  grid-area: contacts;
+}
+
+.fullName {
+  font-size: 30px;
+}
+
+.blockTitle {
+  font-weight: bold;
 }
