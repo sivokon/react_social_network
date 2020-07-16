@@ -16,7 +16,7 @@ const Users = (props) => {
   let paginationPages = [];
   for (let i = 1; i <= pagesCount; i++) {
     paginationPages.push(
-      <div className={[styles.paginationItem, i === props.currentPage && styles.activePaginationItem].join(' ')}
+      <div className={`${styles.paginationItem} ${i === props.currentPage && styles.activePaginationItem}`}
         onClick={() => props.onPageChanged(i)}>{i}</div>);
   }
 

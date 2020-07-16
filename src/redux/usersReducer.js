@@ -75,7 +75,7 @@ export const usersReducer = (state = initialState, action) => {
   return state;
 }
 
-export const toggleFollow = (userId) => ({ type: TOGGLE_FOLLOW, userId })
+export const toggleFollow = (userId) => ({ type: TOGGLE_FOLLOW, userId });
 export const setUsers = (users) => ({ type: SET_USERS, users });
 export const addUsers = (users) => ({type: ADD_USERS, users});
 export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_USERS_COUNT, totalCount});
