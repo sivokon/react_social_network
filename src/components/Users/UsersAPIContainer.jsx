@@ -41,12 +41,43 @@ class UsersAPIContainer extends React.Component {
 
   retrieveUsers = (page, count, successCallback) => {
     this.props.toggleIsFetching(true);
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${count}`)
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${count}`, { withCredentials: true })
       .then(response => {
         this.props.toggleIsFetching(false);
         successCallback(response);
       });
   }
+
+  // toggleFollow = (userId) => {
+  //   let user = this.props.users.find(e => e.id == userId);
+  //   if (user.followed) {
+  //     axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`,
+  //       { 
+  //         withCredentials: true,
+  //         headers: {
+  //           "API-KEY": "909e8075-ec8d-42ca-b97f-8694f6381a31"
+  //         }
+  //       })
+  //       .then(response => {
+  //         if (response.data.resultCode === 0) {
+  //           this.props.toggleFollow(userId);
+  //         }
+  //       })
+  //   } else {
+  //     axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {},
+  //       { 
+  //         withCredentials: true,
+  //         headers: {
+  //           "API-KEY": "909e8075-ec8d-42ca-b97f-8694f6381a31"
+  //         }
+  //       })
+  //       .then(response => {
+  //         if (response.data.resultCode === 0) {
+  //           this.props.toggleFollow(userId);
+  //         }
+  //       });
+  //   }
+  // }
 
   render() {
     return (
