@@ -1,4 +1,4 @@
-import Axios from "axios";
+import { usersApi } from '../api/api';
 
 const TOGGLE_FOLLOW = "TOGGLE_FOLLOW";
 const SET_USERS = "SET_USERS";
@@ -79,6 +79,27 @@ export const usersReducer = (state = initialState, action) => {
 
   }
   return state;
+}
+
+export const getInitialUsers = (pageNumber, pageSize) => (dispatch) => {
+  dispatch(toggleIsFetching(true));
+
+  usersApi.retrieveUsers(pageNumber, pageSize)
+      .then(data => {
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(data.items));
+        dispatch(setTotalUsersCount(data.totalCount));
+      });
+}
+
+export const getAdditionalUsers = (pageNumber, pageSize) => (dispatch) => {
+  dispatch(toggleIsFetching(true));
+
+  usersApi.retrieveUsers(pageNumber, pageSize)
+      .then(data => {
+        dispatch(toggleIsFetching(false));
+        dispatch(addUsers(data.items));
+      });
 }
 
 export const toggleFollow = (userId) => ({ type: TOGGLE_FOLLOW, userId });

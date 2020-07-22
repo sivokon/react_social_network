@@ -4,10 +4,7 @@ import { usersApi } from '../../api/api';
 
 class UsersAPIContainer extends React.Component {
   componentDidMount() {
-    this.retrieveUsers(this.props.currentPage, this.props.pageSize, data => {
-      this.props.setUsers(data.items);
-      this.props.setTotalUsersCount(data.totalCount);
-    });
+    this.props.getInitialUsers(this.props.currentPage, this.props.pageSize);
   }
 
   togglePagination = () => {
@@ -16,19 +13,13 @@ class UsersAPIContainer extends React.Component {
     this.props.togglePagination();
     this.props.setCurrentPage(firstPageIndex);
 
-    this.retrieveUsers(firstPageIndex, this.props.pageSize, data => {
-      this.props.setUsers(data.items);
-      this.props.setTotalUsersCount(data.totalCount);
-    });
+    this.props.getInitialUsers(firstPageIndex, this.props.pageSize);
   }
 
   onPageChanged = (pageIndex) => {
     this.props.setCurrentPage(pageIndex);
 
-    this.retrieveUsers(pageIndex, this.props.pageSize, data => {
-      this.props.setUsers(data.items);
-      this.props.setTotalUsersCount(data.totalCount);
-    });
+    this.props.getInitialUsers(pageIndex, this.props.pageSize);
   }
 
   onShowMoreClick = () => {
@@ -36,18 +27,7 @@ class UsersAPIContainer extends React.Component {
 
     this.props.setCurrentPage(nextPageIndex);
 
-    this.retrieveUsers(nextPageIndex, this.props.pageSize, data => {
-      this.props.addUsers(data.items);
-    });
-  }
-
-  retrieveUsers = (page, count, successCallback) => {
-    this.props.toggleIsFetching(true);
-    usersApi.retrieveUsers(page, count)
-      .then(response => {
-        this.props.toggleIsFetching(false);
-        successCallback(response);
-      });
+    this.props.getAdditionalUsers(nextPageIndex, this.props.pageSize);
   }
 
   render() {
