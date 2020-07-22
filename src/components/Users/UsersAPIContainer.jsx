@@ -18,6 +18,7 @@ class UsersAPIContainer extends React.Component {
 
     this.retrieveUsers(firstPageIndex, this.props.pageSize, data => {
       this.props.setUsers(data.items);
+      this.props.setTotalUsersCount(data.totalCount);
     });
   }
 
@@ -26,6 +27,7 @@ class UsersAPIContainer extends React.Component {
 
     this.retrieveUsers(pageIndex, this.props.pageSize, data => {
       this.props.setUsers(data.items);
+      this.props.setTotalUsersCount(data.totalCount);
     });
   }
 
