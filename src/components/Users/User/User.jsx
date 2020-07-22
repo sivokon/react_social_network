@@ -11,7 +11,9 @@ const User = (props) => {
           userId={props.user.id}
           followed={props.user.followed}
           avatar={props.user.photos.small}
-          toggleFollow={props.toggleFollow} />
+          followingInProgressUsersIds={props.followingInProgressUsersIds}
+          toggleFollow={props.toggleFollow}
+          setFollowingIsInProgress={props.setFollowingIsInProgress} />
         <UserInfo
           name={props.user.name}
           // location={props.user.location}

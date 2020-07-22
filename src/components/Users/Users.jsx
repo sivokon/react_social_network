@@ -6,11 +6,15 @@ import Preloader from '../common/Preloader/Preloader';
 const Users = (props) => {
 
   let users = props.users.map(
-    user => <User user={user} toggleFollow={props.toggleFollow} />);
+    user => <User 
+              user={user}
+              followingInProgressUsersIds={props.followingInProgressUsersIds}
+              toggleFollow={props.toggleFollow}
+              setFollowingIsInProgress={props.setFollowingIsInProgress} />);
 
   let paginationCheckbox = props.addPagination
-    ? <input type="checkbox" id="pagination" onChange={props.togglePagination} checked />
-    : <input type="checkbox" id="pagination" onChange={props.togglePagination} />;
+    ? <input type="checkbox" id="pagination" onChange={props.togglePagination} checked disabled={props.isFetching} />
+    : <input type="checkbox" id="pagination" onChange={props.togglePagination} disabled={props.isFetching} />;
 
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let paginationPages = [];

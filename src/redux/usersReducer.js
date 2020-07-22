@@ -1,3 +1,5 @@
+import Axios from "axios";
+
 const TOGGLE_FOLLOW = "TOGGLE_FOLLOW";
 const SET_USERS = "SET_USERS";
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
@@ -5,6 +7,7 @@ const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const TOGGLE_PAGINATION = "TOGGLE_PAGINATION";
 const ADD_USERS = "ADD_USERS";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+const SET_FOLLOWING_IS_IN_PROGRESS = "SET_FOLLOWING_IS_IN_PROGRESS";
 
 let initialState = {
   users: [],
@@ -12,7 +15,8 @@ let initialState = {
   pageSize: 4,
   currentPage: 1,
   addPagination: false,
-  isFetching: false
+  isFetching: false,
+  followingInProgressUsersIds: []
   // users: [
   //   { id: 1, followed: false, fullName: "Artem Tarasenko", location: { country: "Ukraine", city: "Kiev" }, status: "I am React developer", avatarUrl: "https://yt3.ggpht.com/a/AGF-l7-uueDdRmZsJQOVmDZCeIjv8tU9swZd1pJYCw=s900-c-k-c0xffffffff-no-rj-mo" },
   //   { id: 2, followed: false, fullName: "Sanan Sivasankaran", location: { country: "India", city: "New Deli" }, status: "I am Indian man", avatarUrl: "https://yt3.ggpht.com/a/AGF-l7-uueDdRmZsJQOVmDZCeIjv8tU9swZd1pJYCw=s900-c-k-c0xffffffff-no-rj-mo" },
@@ -71,6 +75,14 @@ export const usersReducer = (state = initialState, action) => {
         isFetching: action.isFetching
       }
 
+    case SET_FOLLOWING_IS_IN_PROGRESS:
+      return {
+        ...state,
+        followingInProgressUsersIds: action.isInProgress
+          ? [...state.followingInProgressUsersIds, action.userId]
+          : [state.followingInProgressUsersIds.filter(e => e != action.userId)]
+      }
+
   }
   return state;
 }
@@ -82,3 +94,4 @@ export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_USERS_COUNT,
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const togglePagination = () => ({ type: TOGGLE_PAGINATION });
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+export const setFollowingIsInProgress = (isInProgress, userId) => ({type: SET_FOLLOWING_IS_IN_PROGRESS, isInProgress, userId});
