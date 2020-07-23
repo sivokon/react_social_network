@@ -1,3 +1,5 @@
+import { authApi } from '../api/api';
+
 const SET_CURRENT_USER = "SET_CURRENT_USER";
 
 let initialState = {
@@ -19,6 +21,16 @@ export const authReducer = (state = initialState, action) => {
   }
 
   return state;
+}
+
+export const getLoggedInUser = () => (dispatch) => {
+  authApi.retrieveCurrentLoggedInUserInfo()
+    .then(data => {
+      if (data.resultCode === 0) {
+        let { id, login, email } = data.data;
+        dispatch(setCurrentUser(id, login, email));
+      }
+    });
 }
 
 export const setCurrentUser = (userId, login, email) =>
