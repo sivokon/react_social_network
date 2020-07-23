@@ -41,11 +41,11 @@ class UsersAPIContainer extends React.Component {
           addPagination={this.props.addPagination}
           isFetching={this.props.isFetching}
           followingInProgressUsersIds={this.props.followingInProgressUsersIds}
-          setFollowingIsInProgress={this.props.setFollowingIsInProgress}
-          toggleFollow={this.props.toggleFollow}
           togglePagination={this.togglePagination.bind(this)}
           onPageChanged={this.onPageChanged.bind(this)}
-          onShowMoreClick={this.onShowMoreClick.bind(this)} />
+          onShowMoreClick={this.onShowMoreClick.bind(this)}
+          followUser={this.props.followUser}
+          unfollowUser={this.props.unfollowUser} />
       </>
     );
   }

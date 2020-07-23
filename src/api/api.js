@@ -37,6 +37,6 @@ export const followApi = {
 
   unfollowUser(userId) {
     return samuraiJsApiInstance.delete(`/follow/${userId}`)
-      .then(response => response);
+      .then(response => response.data);
   }
 }

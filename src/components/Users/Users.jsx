@@ -4,13 +4,13 @@ import styles from './Users.module.css';
 import Preloader from '../common/Preloader/Preloader';
 
 const Users = (props) => {
-
+  
   let users = props.users.map(
     user => <User 
               user={user}
-              followingInProgressUsersIds={props.followingInProgressUsersIds}
-              toggleFollow={props.toggleFollow}
-              setFollowingIsInProgress={props.setFollowingIsInProgress} />);
+              followUser={props.followUser}
+              unfollowUser={props.unfollowUser}
+              followingInProgressUsersIds={props.followingInProgressUsersIds} />);
 
   let paginationCheckbox = props.addPagination
     ? <input type="checkbox" id="pagination" onChange={props.togglePagination} checked disabled={props.isFetching} />

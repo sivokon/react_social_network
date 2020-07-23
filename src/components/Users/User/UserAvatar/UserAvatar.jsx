@@ -2,31 +2,15 @@ import React from 'react';
 import styles from './UserAvatar.module.css';
 import defaultAvatar from '../../../../assets/images/user.jpg';
 import { NavLink } from 'react-router-dom';
-import * as axios from 'axios';
-import { followApi } from '../../../../api/api';
 
 const UserAvatar = (props) => {
 
   const follow = () => {
-    props.setFollowingIsInProgress(true, props.userId);
-    followApi.followUser(props.userId)
-      .then(data => {
-        if (data.resultCode === 0) {
-          props.toggleFollow(props.userId);
-          props.setFollowingIsInProgress(false, props.userId);
-        }
-      });
+    props.followUser(props.userId);
   }
 
   const unfollow = () => {
-    props.setFollowingIsInProgress(true, props.userId);
-    followApi.unfollowUser(props.userId)
-      .then(response => {
-        if (response.data.resultCode === 0) {
-          props.setFollowingIsInProgress(false, props.userId);
-          props.toggleFollow(props.userId);
-        }
-      });
+    props.unfollowUser(props.userId);
   }
 
   return (

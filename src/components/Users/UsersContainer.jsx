@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UsersAPIContainer from './UsersAPIContainer';
-import { toggleFollow, setCurrentPage, togglePagination, setFollowingIsInProgress, getInitialUsers, getAdditionalUsers } from '../../redux/usersReducer';
+import { setCurrentPage, togglePagination, getInitialUsers, getAdditionalUsers, followUser, unfollowUser } from '../../redux/usersReducer';
 
 let mapStateToProps = (state) => {
   return {
@@ -16,7 +16,12 @@ let mapStateToProps = (state) => {
 
 const UsersContainer = connect(
   mapStateToProps,
-  { toggleFollow, setCurrentPage, togglePagination, setFollowingIsInProgress, getInitialUsers, getAdditionalUsers }
+  { setCurrentPage,
+    togglePagination,
+    getInitialUsers,
+    getAdditionalUsers,
+    followUser,
+    unfollowUser }
 )(UsersAPIContainer);
 
 export default UsersContainer;
