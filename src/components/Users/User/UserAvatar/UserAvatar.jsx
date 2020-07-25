@@ -5,12 +5,12 @@ import { NavLink } from 'react-router-dom';
 
 const UserAvatar = (props) => {
 
-  const follow = () => {
-    props.followUser(props.userId);
+  const follow = (userId) => {
+    props.followUser(userId);
   }
 
-  const unfollow = () => {
-    props.unfollowUser(props.userId);
+  const unfollow = (userId) => {
+    props.unfollowUser(userId);
   }
 
   return (
@@ -22,10 +22,10 @@ const UserAvatar = (props) => {
         {
           props.followed
             ? <button
-                onClick={unfollow}
+                onClick={() => unfollow(props.userId)}
                 disabled={props.followingInProgressUsersIds.some(e => e == props.userId)}>Unfollow</button>
             : <button
-                onClick={follow}
+                onClick={() => follow(props.userId)}
                 disabled={props.followingInProgressUsersIds.some(e => e == props.userId)}>Follow</button>
         }
       </div>

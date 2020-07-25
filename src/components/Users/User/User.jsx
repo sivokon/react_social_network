@@ -16,7 +16,6 @@ const User = (props) => {
           unfollowUser={props.unfollowUser} />
         <UserInfo
           name={props.user.name}
-          // location={props.user.location}
           status={props.user.status} />
       </div>
     </div>
