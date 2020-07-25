@@ -1,6 +1,5 @@
 import React from 'react';
 import Users from './Users';
-import { usersApi } from '../../api/api';
 
 class UsersAPIContainer extends React.Component {
   componentDidMount() {
