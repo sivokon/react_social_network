@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import UsersAPIContainer from './UsersAPIContainer';
 import { setCurrentPage, togglePagination, getInitialUsers, getAdditionalUsers, followUser, unfollowUser } from '../../redux/usersReducer';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 let mapStateToProps = (state) => {
   return {
@@ -14,6 +15,8 @@ let mapStateToProps = (state) => {
   }
 }
 
+const UsersApiContainerWithAuthRedirect = withAuthRedirect(UsersAPIContainer);
+
 const UsersContainer = connect(
   mapStateToProps,
   { setCurrentPage,
@@ -22,6 +25,6 @@ const UsersContainer = connect(
     getAdditionalUsers,
     followUser,
     unfollowUser }
-)(UsersAPIContainer);
+)(UsersApiContainerWithAuthRedirect);
 
 export default UsersContainer;
