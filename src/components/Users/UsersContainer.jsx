@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import UsersAPIContainer from './UsersAPIContainer';
 import { setCurrentPage, togglePagination, getInitialUsers, getAdditionalUsers, followUser, unfollowUser } from '../../redux/usersReducer';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 let mapStateToProps = (state) => {
   return {
@@ -15,16 +16,24 @@ let mapStateToProps = (state) => {
   }
 }
 
-const UsersApiContainerWithAuthRedirect = withAuthRedirect(UsersAPIContainer);
+// const UsersApiContainerWithAuthRedirect = withAuthRedirect(UsersAPIContainer);
 
-const UsersContainer = connect(
-  mapStateToProps,
-  { setCurrentPage,
-    togglePagination,
-    getInitialUsers,
-    getAdditionalUsers,
-    followUser,
-    unfollowUser }
-)(UsersApiContainerWithAuthRedirect);
+// const UsersContainer = connect(
+//   mapStateToProps,
+//   { setCurrentPage,
+//     togglePagination,
+//     getInitialUsers,
+//     getAdditionalUsers,
+//     followUser,
+//     unfollowUser }
+// )(UsersApiContainerWithAuthRedirect);
 
-export default UsersContainer;
+// export default UsersContainer;
+
+export default compose(
+  connect(
+    mapStateToProps,
+    { setCurrentPage, togglePagination, getInitialUsers, getAdditionalUsers, followUser, unfollowUser }
+  ),
+  withAuthRedirect
+)(UsersAPIContainer);
